@@ -48,6 +48,25 @@ public class UserController {
         return msg;
     }
 
+    @PostMapping("/login1")
+    public int accueil1(@RequestBody Utilisateur user){
+        /*String email = user.getEmail();
+        String mdp = user.getMdp();*/
+        String msg="";
+        /*String email = user.getEmail();
+        String mdp = user.getMdp();*/
+        //ResponseEntity<Utilisateur> users = validation(email,mdp);
+        if(user.getEmail().equals("admin@gmail.com") && user.getMdp().equals("admin")){
+           return 1;
+        }else{
+            return 0;
+        }
+        // Affichez les données dans la console
+        /*logger.info("Données reçues du formulaire: email={}, password={}", email, mdp);
+        String message = "Authentification réussie!"+email;*/
+      
+    }
+
     @PostMapping("/checking")
     public String checkUtilisateur(String email,String mdp) {
             ResponseEntity<Utilisateur> user = validation("Daniella@gmail.com","1234");
